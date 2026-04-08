@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛤～你怎麼不知道！－水井村教育網站</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>蛤～你怎麼不知道！</h1>
+            <p>水井村教育網站 [cite: 1, 2]</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#intro">村莊介紹</a></li>
+                <li><a href="#culture">養殖文化</a></li>
+                <li><a href="#special">地方特色</a></li>
+                <li><a href="#edu">教育課程</a></li>
+                <li><a href="#map">QR導覽地圖</a></li>
+                <li><a href="#feedback">互動回饋</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>在地漁村正在消失，故事由我們記錄 [cite: 5, 18]</h2>
+            <p>透過數位化保存，讓水井村的靈魂得以傳承 [cite: 23, 141]</p>
+        </div>
+    </section>
+
+    <section id="intro" class="container">
+        <h2>水井村介紹 [cite: 54]</h2>
+        <div class="content-box">
+            <p>水井村擁有豐富的農漁產業，但面臨人口高齡化與青壯年外流的挑戰 [cite: 6, 7]。</p>
+            <p>我們深入訪談耆老，將口述歷史轉化為數位檔案，建立文化資料庫 [cite: 24, 25]。</p>
+        </div>
+    </section>
+
+    <section id="culture" class="container bg-light">
+        <h2>養殖文化 [cite: 55]</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>文蛤養殖 [cite: 9]</h3>
+                <p>數位保存老農腦海中的養殖技術，不再隨長輩凋零 [cite: 10, 138]。</p>
+            </div>
+            <div class="card">
+                <h3>虱目魚養殖 [cite: 9]</h3>
+                <p>詳細記錄在地漁村的生產日常與技術細節 [cite: 73, 138]。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="special" class="container">
+        <h2>地方特色與 AR 體驗 [cite: 56, 63]</h2>
+        <p>結合實體與數位，透過手機即可體驗水井村歷史 [cite: 68, 69]。</p>
+        <div class="ar-zone">
+            <ul>
+                <li>姻緣花祭典數位保存 [cite: 11]</li>
+                <li>牽水狀文化故事 [cite: 56]</li>
+            </ul>
+            <button id="ar-explore" class="btn">啟動 AR 歷史畫面模擬 [cite: 65, 67]</button>
+        </div>
+    </section>
+
+    <section id="edu" class="container bg-light">
+        <h2>教育課程 [cite: 57]</h2>
+        <p>SDG 4 優質教育：建立免費數位平台，讓學童遠端學習在地農漁知識 [cite: 33, 36]。</p>
+        <div class="download-zone">
+            <p>設計給學校與親子的數位學習單元 [cite: 58]。</p>
+            <a href="#" class="btn-outline">下載數位教材</a>
+        </div>
+    </section>
+
+    <section id="map" class="container">
+        <h2>QR 導覽地圖 [cite: 60, 67]</h2>
+        <p>走訪水井村景點，掃描實體 QR Code 貼牌即可查看故事 [cite: 60, 68]。</p>
+        <div class="map-placeholder">
+            <p>【數位故事地圖預留區】 [cite: 66]</p>
+        </div>
+    </section>
+
+    <section id="feedback" class="container bg-light">
+        <h2>互動回饋 [cite: 61]</h2>
+        <div class="feedback-form">
+            <textarea id="user-comment" placeholder="留下你對水井村的想法..."></textarea>
+            <button onclick="submitFeedback()" class="btn">送出留言 [cite: 62]</button>
+            <ul id="comment-list"></ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>呼應 SDGs 4, 11, 17 目標 [cite: 30, 31]</p>
+        <p>大學生團隊 × 水井在地居民 × 周邊學校 三方協作 [cite: 38]</p>
+        <p>&copy; 2026 水井村數位文化保存計畫 [cite: 32]</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
