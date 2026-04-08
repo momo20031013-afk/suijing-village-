@@ -1,89 +1,74 @@
 /**
- * 水井村教育網站 - 核心互動邏輯
- * 呼應企劃：數位文化保存與實體x數位結合 [cite: 32, 68]
+ * 水井村教育網站 - 核心互動邏輯 (分頁版)
+ * 實作企劃：AR體驗、互動回饋與數位導覽
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("水井村數位保存計畫：系統啟動中...");
+    console.log("水井村數位保存計畫：分頁系統啟動中...");
 
-    // 1. 平滑捲動 (Smooth Scroll)
-    // 讓使用者點擊導覽列時，能優雅地滑動到對應功能區塊 [cite: 52]
+    // 1. 自動高亮當前導覽分頁
+    // 讓使用者知道自己目前在哪一個功能區塊
+    const currentLocation = window.location.pathname.split("/").pop();
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+        if (link.getAttribute('href') === currentLocation) {
+            link.classList.add('active');
+        }
     });
 
-    // 2. 簡易 AR 歷史畫面模擬 (呼應企劃 P7：特色功能亮點) [cite: 63, 65]
-    // 模擬使用者透過手機掃描特定景點後，觸發歷史畫面的效果 [cite: 67, 69]
+    // 2. 簡易 AR 歷史畫面模擬 (實作於 special.html)
+    // 呼應企劃：透過手機即可體驗水井村歷史
     const arBtn = document.getElementById('ar-explore');
     if (arBtn) {
         arBtn.addEventListener('click', () => {
-            // AIDA 流程：引起注意 (Attention) 與 激發欲望 (Desire) [cite: 72, 77]
-            const heroSection = document.querySelector('.hero');
+            // 模擬 AIDA 流程：引起注意 (Attention)
+            alert("【AR 系統啟動中】\n正在掃描環境... 成功！\n\n您現在可以看到「姻緣花祭典」在 50 年前的實景重現。");
             
-            // 模擬濾鏡切換效果
-            heroSection.style.filter = "sepia(0.8) contrast(1.2)";
-            alert("【AR 模擬啟動】透過手機鏡頭，您正看見 1960 年代的水井村姻緣花祭典盛況！");
+            // 模擬畫面的視覺變化 (增加 Desire 欲望)
+            const container = document.querySelector('.container');
+            container.style.transition = "all 1s";
+            container.style.filter = "sepia(0.6) contrast(1.1)";
             
             setTimeout(() => {
-                heroSection.style.filter = "none";
-                alert("AR 體驗結束，歡迎親自前往水井村實體景點掃碼探索更多故事！");
-            }, 5000);
+                container.style.filter = "none";
+                alert("AR 體驗結束。若要查看更多地點，請至村內尋找實體 QR Code 貼牌。");
+            }, 4000);
         });
     }
 
-    // 3. 互動回饋系統 (呼應企劃 P6：互動回饋) [cite: 61, 62]
-    // 實作簡單的留言牆，讓大學生團隊與訪客能產生連結 [cite: 38]
+    // 3. 互動回饋留言牆 (實作於 feedback.html)
+    // 呼應企劃：利用留言牆讓大學生團隊與訪客產生連結
     window.submitFeedback = function() {
         const commentInput = document.getElementById('user-comment');
         const commentList = document.getElementById('comment-list');
         
+        if (!commentInput || !commentList) return;
+
         if (commentInput.value.trim() === "") {
             alert("請輸入您的想法再送出喔！");
             return;
         }
 
-        // 建立新留言
+        // 建立新留言節點 (數位保存概念)
         const newEntry = document.createElement('li');
+        newEntry.style.padding = "10px";
+        newEntry.style.borderBottom = "1px solid #ddd";
+        newEntry.style.listStyle = "none";
         newEntry.innerHTML = `
-            <strong>訪客回饋：</strong> ${commentInput.value}
-            <br><small>發布時間：${new Date().toLocaleString('zh-TW')}</small>
+            <strong>訪客：</strong> ${commentInput.value}
+            <br><small style="color: #666;">發布時間：${new Date().toLocaleString('zh-TW')}</small>
         `;
         
-        // 加入列表並清空輸入框
-        commentList.prepend(newEntry); // 新留言在最上面
+        commentList.prepend(newEntry);
         commentInput.value = "";
         
-        // 成功回饋 (Action 促成行動) [cite: 79, 80]
-        alert("您的回饋已收錄！這將成為水井村數位保存的重要參考。");
+        alert("感謝您的回饋！這將幫助我們推動水井村的文化傳承。");
     };
 
-    // 4. QR Code 導覽邏輯模擬 (呼應企劃 P9：居民向外擴散) [cite: 88]
-    // 模擬從特定 QR Code 進入頁面時，自動跳轉到對應知識點 [cite: 60]
-    const urlParams = new URLSearchParams(window.location.search);
-    const site = urlParams.get('site');
-    if (site) {
-        console.log(`偵測到從實體景點 QR Code 進入：${site}`);
-        // 可根據 site 參數自動捲動到指定內容
-    }
+    // 4. 預期效益追蹤模擬 (呼應企劃 P13)
+    // 模擬網站瀏覽量統計，幫助達成 1,000+ 瀏覽次數目標
+    let mockViews = localStorage.getItem('suijing_views') || 0;
+    mockViews = parseInt(mockViews) + 1;
+    localStorage.setItem('suijing_views', mockViews);
+    console.log(`目前累計瀏覽次數：${mockViews} / 1000`);
 });
-
-// 預期效益追蹤模擬 [cite: 126]
-let visitCount = 0;
-function trackVisit() {
-    visitCount++;
-    if (visitCount >= 1000) {
-        console.log("達成企劃目標：網站瀏覽次數突破 1,000 次！ [cite: 133]");
-    }
-}
-trackVisit();
