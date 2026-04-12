@@ -23,14 +23,34 @@
             <a-sky src="#suijing-bg" rotation="0 -90 0"></a-sky>
 
             <a-entity position="0 2 -4">
-                <a-text value="Welcome to Suijing Myth VR" position="0 0.6 0" color="#ffcc00" width="8" align="center"></a-text>
-                <a-entity text="value: 歡迎來到水井神話虛擬實境; align: center; color: #ffcc00; width: 6; font: https://cdn.aframe.io/fonts/NotoSansCJKtc-Regular.fnt; shader: msdf" position="0 0.2 0"></a-entity>
+                <a-text value="Welcome to Suijing Myth VR" position="0 0.8 0" color="#ffcc00" width="8" align="center"></a-text>
+                
+                <a-entity text="value: 歡迎來到水井神話虛擬實境; 
+                                align: center; 
+                                color: #ffcc00; 
+                                width: 7; 
+                                font: https://raw.githubusercontent.com/myso-jp/aframe-fonts/master/fonts/notosanscjkjp/NotoSansCJKjp-Medium-msdf.json; 
+                                negate: false;
+                                shader: msdf" 
+                          position="0 0.3 0">
+                </a-entity>
                 
                 <a-text value="Explore the legend of the Dragon and Waterwheel" position="0 -0.4 0" color="#ffffff" width="4" align="center"></a-text>
-                <a-entity text="value: 探索神龍與龍骨水車的傳說; align: center; color: #ffffff; width: 4; font: https://cdn.aframe.io/fonts/NotoSansCJKtc-Regular.fnt; shader: msdf" position="0 -0.8 0"></a-entity>
+                
+                <a-entity text="value: 探索神龍與龍骨水車的傳說; 
+                                align: center; 
+                                color: #ffffff; 
+                                width: 4.5; 
+                                font: https://raw.githubusercontent.com/myso-jp/aframe-fonts/master/fonts/notosanscjkjp/NotoSansCJKjp-Medium-msdf.json; 
+                                negate: false;
+                                shader: msdf" 
+                          position="0 -0.8 0">
+                </a-entity>
             </a-entity>
 
-            <a-entity camera look-controls wasd-controls><a-cursor color="#ffcc00"></a-cursor></a-entity>
+            <a-entity camera look-controls wasd-controls>
+                <a-cursor color="#ffcc00"></a-cursor>
+            </a-entity>
         </a-scene>
         <button onclick="closeMode()" class="btn-close">❌ 離開 VR / Exit</button>
     </div>
@@ -39,7 +59,16 @@
         <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
             <a-marker preset="hiro">
                 <a-sphere position="0 0.5 0" radius="0.3" color="#ff6699" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-sphere>
-                <a-entity text="value: 水井文化保存; align: center; color: #ffcc00; width: 4; font: https://cdn.aframe.io/fonts/NotoSansCJKtc-Regular.fnt; shader: msdf" position="0 1 0" rotation="-90 0 0"></a-entity>
+                <a-entity text="value: 水井文化保存; 
+                                align: center; 
+                                color: #ffcc00; 
+                                width: 4; 
+                                font: https://raw.githubusercontent.com/myso-jp/aframe-fonts/master/fonts/notosanscjkjp/NotoSansCJKjp-Medium-msdf.json; 
+                                negate: false;
+                                shader: msdf" 
+                          position="0 1 0" 
+                          rotation="-90 0 0">
+                </a-entity>
             </a-marker>
             <a-entity camera></a-entity>
         </a-scene>
@@ -48,27 +77,43 @@
 
     <main class="glass-card">
         <h2>🌸 文化特色與 XR 體驗</h2>
+        <p>我們結合實體與數位技術，透過 AR 與 VR 讓水井村的文化 asset 得以被世界看見。</p>
+        
         <div class="sub-card" style="margin: 20px 0; text-align: center;">
             <button onclick="openVR()" class="btn-ar" style="width: 100%; margin-bottom: 20px;">🚀 進入 VR 空間</button>
             <button onclick="openAR()" class="btn-ar" style="width: 100%; background: #00ccff; color: #fff;">✨ 啟動 AR 相機</button>
         </div>
+
         <div class="btn-group">
             <a href="index.html" class="btn-home">🏠 回主畫面</a>
             <a href="edu.html" class="btn-next">下一步：教育課程 ➔</a>
         </div>
     </main>
 
+    <style>
+        .btn-close { 
+            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); 
+            padding: 15px 30px; background: rgba(255, 68, 68, 0.9); color: white; 
+            border-radius: 50px; border: none; font-weight: bold; z-index: 10000; 
+            cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+        }
+    </style>
+
     <script>
         function openVR() {
             const vr = document.getElementById('vr-view');
             vr.style.visibility = 'visible';
             vr.style.opacity = '1';
-            document.querySelector('a-scene').resize();
+            if (document.querySelector('a-scene')) {
+                document.querySelector('a-scene').resize();
+            }
         }
         function openAR() {
             document.getElementById('ar-view').style.display = 'block';
         }
-        function closeMode() { location.reload(); }
+        function closeMode() {
+            location.reload();
+        }
     </script>
 </body>
 </html>
