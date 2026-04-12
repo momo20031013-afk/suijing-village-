@@ -72,3 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('suijing_views', mockViews);
     console.log(`目前累計瀏覽次數：${mockViews} / 1000`);
 });
+// 地圖點位切換功能
+function showPoint(type) {
+    const infoBox = document.getElementById('point-info');
+    const title = document.getElementById('point-title');
+    const desc = document.getElementById('point-desc');
+    
+    infoBox.style.display = 'block';
+    
+    const data = {
+        'temple': { title: '⛩️ 聖天宮 (姻緣花起點)', desc: '水井村信仰中心，也是每年祭典最熱鬧的地方。掃描廟前 QR Code 可看歷史繞境影像。' },
+        'pond': { title: '🐟 文蛤養殖區', desc: '這裡可以觀察到最傳統的水質管理技術。掃描岸邊 QR Code 可聽長輩講解「看水」的智慧。' },
+        'flower': { title: '🌸 姻緣花復育地', desc: '記錄著水井村特有的姻緣花文化，是數位保存計畫的重點區域。' }
+    };
+    
+    title.innerText = data[type].title;
+    desc.innerText = data[type].desc;
+}

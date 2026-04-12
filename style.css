@@ -50,9 +50,136 @@ body { margin: 0; min-height: 100vh; color: white; overflow-x: hidden; }
 }
 .btn-home { background: rgba(255,255,255,0.2); color: white; }
 .btn-next, .btn-ar { background: #ffcc00; color: #002; }
+/* 首頁文字介紹區塊 */
+.home-info {
+    margin-top: 40px;
+    padding: 30px;
+    text-align: left;
+}
+.sdgs-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    font-size: 0.8rem;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+/* 教育頁面專用 */
+.edu-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.edu-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+.edu-card h3 {
+    margin: 10px 0;
+}
+.edu-card p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
 
 /* 手機版適配 */
 @media (max-width: 500px) {
     .app-grid { grid-template-columns: repeat(2, 1fr); }
     .sub-grid { grid-template-columns: 1fr; }
+}
+/* 地圖點位樣式 */
+.map-container {
+    background-image: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80'); /* 暫用一張地圖感背景 */
+    background-size: cover;
+    background-position: center;
+}
+
+.map-point {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px; height: 50px;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(5px);
+    border: 2px solid #ffcc00;
+    transition: 0.3s;
+    animation: pulse 2s infinite;
+}
+
+.map-point:hover {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 204, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
+}
+
+#point-info {
+    margin-top: 20px;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* 地圖容器寬度自動適應 */
+.map-wrapper iframe {
+    display: block;
+    width: 100%;
+}
+
+/* 針對行動裝置微調 */
+@media (max-width: 600px) {
+    .glass-card {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+}
+/* 修正輸入框樣式，使其更像 App 介面 */
+.app-input {
+    width: 100%;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 15px;
+    color: white; /* 確保輸入時是白字 */
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.app-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffcc00;
+}
+
+/* 留言牆清單樣式 */
+.comment-wall {
+    padding: 0;
+    margin: 10px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.comment-wall li {
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #ffcc00;
+}
+
+/* 修正文字陰影，增加可讀性 */
+.glass-card p {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }

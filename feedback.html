@@ -3,52 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>互動回饋 - 蛤～你怎麼不知道！</title>
+    <title>互動回饋 - 水井村教育網站</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <div class="logo">
-            <h1>蛤～你怎麼不知道！</h1>
-            <p>互動回饋中心</p>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">首頁</a></li>
-                <li><a href="intro.html">村莊介紹</a></li>
-                <li><a href="culture.html">養殖文化</a></li>
-                <li><a href="special.html">地方特色</a></li>
-                <li><a href="edu.html">教育課程</a></li>
-                <li><a href="feedback.html" class="active">互動回饋</a></li>
-            </ul>
-        </nav>
+<body class="bg-sub">
+    <header class="glass-header">
+        <h1>蛤～你怎麼不知道！</h1>
+        <p>互動回饋中心</p>
     </header>
 
-    <section class="container">
-        <h2>互動回饋</h2>
-        <p>您的建議是我們持續推動水井村文化數位保存的重要動力。 [cite: 61]</p>
+    <div class="glass-card">
+        <h2>💬 互動回饋</h2>
+        <p>您的建議是我們持續推動水井村文化數位保存的重要動力。</p>
         
-        <div class="feedback-form" style="background: #f9f9f9; padding: 30px; border-radius: 10px; margin-top: 20px;">
-            <h3>留下您的想法</h3>
-            <p>無論是關於文蛤養殖技術的補充，或是對網站的建議，都歡迎告訴我們！ [cite: 62]</p>
-            <textarea id="user-comment" style="width: 100%; height: 150px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 15px;" placeholder="寫下您的回饋..."></textarea>
-            <br>
-            <button onclick="submitFeedback()" class="btn">送出留言</button>
+        <div class="sub-card">
+            <h3 style="color: #ffcc00;">留下您的想法</h3>
+            <p>無論是關於文蛤養殖技術的補充，或對網站的建議，都歡迎告訴我們！</p>
+            <textarea id="user-comment" class="app-input" placeholder="寫下您的回饋..."></textarea>
+            <button onclick="submitFeedback()" class="btn-ar" style="width: 100%; margin-top: 10px;">🚀 送出留言</button>
         </div>
 
-        <div class="comment-section" style="margin-top: 40px;">
-            <h3>留言牆</h3>
-            <ul id="comment-list" style="background: white; border: 1px solid #eee; border-radius: 10px; padding: 20px;">
-                <li style="list-style: none; color: #888;">目前尚無留言，成為第一個留下足跡的人吧！</li>
+        <div class="sub-card" style="margin-top: 20px;">
+            <h3 style="color: #ffcc00;">留言牆</h3>
+            <ul id="comment-list" class="comment-wall">
+                <li style="list-style: none; opacity: 0.6;">目前尚無留言，成為第一個留下足跡的人吧！</li>
             </ul>
         </div>
-    </section>
 
-    <footer>
-        <p>大學生團隊 × 水井在地居民 × 周邊學校 三方協作 [cite: 38]</p>
-        <p>&copy; 2026 水井村數位文化保存計畫 [cite: 32]</p>
-    </footer>
+        <div class="btn-group">
+            <a href="index.html" class="btn-home">🏠 回主畫面</a>
+            <p style="font-size: 0.8rem; opacity: 0.5;">SDG 17 夥伴關係</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
